@@ -1,0 +1,53 @@
+.navbar {
+  &-container {
+    position: fixed;
+    width: 20%;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.5rem;
+  }
+
+  &-list {
+    list-style-type: none;
+    padding-top: 70%;
+    margin: 0;
+    align-self: flex-start;
+    &-item {
+      margin-bottom: 15px;
+
+      &.active {
+        a {
+          color: $yellow;
+        }
+      }
+
+      a,
+      span {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: $yellow;
+          letter-spacing: 0.8px;
+        }
+      }
+    }
+  }
+}
+
+.submenu {
+  list-style-type: none;
+  padding: 5px 40px;
+  margin: 0;
+
+  .navbar-list-item {
+    margin-bottom: -5px;
+    a {
+      font-size: 1.5rem;
+    }
+  }
+}
