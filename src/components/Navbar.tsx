@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-// Queries
-import { useQuery } from '@apollo/client';
-import { media } from '../gql/Query';
-
 interface Route {
     path: string;
     name: string;
