@@ -21,6 +21,7 @@ const Navbar: React.FC<NavbarProps> = ({ routes }) => {
     const handleClick = (name: string) => {
         setActiveItem(name);
     };
+
     return (
         <div className="navbar-container">
             <ul className="navbar-list">

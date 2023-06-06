@@ -2,7 +2,16 @@ import React from 'react';
 
 export const Events = () => {
     return (
-        <div>
+        <div className="events-container">
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
+            <div className="event"></div>
         </div>
     )
 };

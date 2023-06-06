@@ -1,16 +1,16 @@
 import {gql} from "@apollo/client";
 
 export const media = gql`
-    query Videos {
+    query MyQuery {
         videos {
             title
             link {
                 url
             }
         }
-        mediaElements {
-            elementTitle
-            elementUrl {
+        audioTracks {
+            title
+            audioFile {
                 url
             }
         }

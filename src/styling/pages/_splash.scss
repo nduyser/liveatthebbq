@@ -1,0 +1,40 @@
+.splash {
+  .logo {
+    opacity: 1;
+    animation: bounce 1.5s infinite;
+  }
+
+  .progress-bar-container {
+    position: fixed;
+    width: 100%;
+    top: 60%;
+    transform: translateY(50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-bar {
+    width: 600px;
+    height: 10px;
+    margin-top: 40px;
+    background-color: $white;
+    padding: 3px;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: black;
+    transition: width 0.1s linear;
+  }
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
