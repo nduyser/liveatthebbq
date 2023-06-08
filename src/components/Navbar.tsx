@@ -1,5 +1,8 @@
+// Navbar.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from "../assets/logo-transparent.png";
+import {FaBars, FaGlobe, FaTimes} from "react-icons/fa";
 
 interface Route {
     path: string;
@@ -11,81 +14,41 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ routes }) => {
-    const [showArchive, setShowArchive] = useState(false);
-    const [activeItem, setActiveItem] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    const toggleArchive = () => {
-        setShowArchive(!showArchive);
-    };
 
-    const handleClick = (name: string) => {
-        setActiveItem(name);
-    };
+
+    const home = routes.find((route) => route.name === "Home");
+    const menuItems = routes.filter((route) => route.name !== "Home");
 
     return (
-        <div className="navbar-container">
-            <ul className="navbar-list">
-                {routes.map((route, index) => {
-                    if (route.name === 'Videos' || route.name === 'Photos' || route.name === 'Past Events') {
-                        return null;
-                    }
-                    const isActive = activeItem === route.name;
-                    if (route.name === 'Events') {
-                        return (
-                            <>
-                                <li key={index} className={`navbar-list-item ${isActive ? 'active' : ''}`}>
-                                    <Link to={route.path} onClick={() => handleClick(route.name)}>
-                                        {route.name}
-                                    </Link>
-                                </li>
-                                <li key="archive" className="navbar-list-item">
-                                    <span onClick={toggleArchive}>Archive</span>
-                                    {showArchive && (
-                                        <ul className="submenu">
-                                            {routes.map((subRoute, subIndex) => {
-                                                if (
-                                                    subRoute.name === 'Videos' ||
-                                                    subRoute.name === 'Photos' ||
-                                                    subRoute.name === 'Past Events'
-                                                ) {
-                                                    return (
-                                                        <li key={subIndex}
-                                                            className={`navbar-list-item ${
-                                                                activeItem === subRoute.name ? 'active' : ''
-                                                            }`}
-                                                        >
-                                                            <Link to={subRoute.path}
-                                                                onClick={() => handleClick(subRoute.name)}
-                                                            >
-                                                                {subRoute.name}
-                                                            </Link>
-                                                        </li>
-                                                    );
-                                                }
-                                                return null;
-                                            })}
-                                        </ul>
-                                    )}
-                                </li>
-                            </>
-                        );
-                    }
+        <div className="navbar">
+                <div className="menu-overlay">
+                    <ul className="navbar-menu">
+                        {menuItems.map((route, index) => (
+                            <li key={index} className="navbar-menu-item">
+                                <Link to={route.path}>
+                                    {route.name}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
-                    return (
-                        <li
-                            key={index}
-                            className={`navbar-list-item ${isActive ? 'active' : ''}`}
-                        >
-                            <Link
-                                to={route.path}
-                                onClick={() => handleClick(route.name)}
-                            >
-                                {route.name}
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
+            <div className="navbar-container">
+                {home && (
+                    <Link to={home.path}
+                          className="navbar-logo-container">
+                        <img src={logo} alt="LATBBQ Logo" className="navbar-logo" />
+                    </Link>
+                )}
+
+                <div className="navbar-menu-icon">
+                 <Link to="https://instagram.com/liveatthebbq" target="_blank">
+                     <FaGlobe />
+                 </Link>
+                </div>
+            </div>
         </div>
     );
 };

@@ -37,12 +37,7 @@ const Splash: React.FC<SplashProps> = ({ setLoading }) => {
         <div id="splash-screen" className="page-container splash fade-in">
             <LogoFullScreen />
             <div className="progress-bar-container">
-                <div className="progress-bar">
-                    <div
-                        className="progress"
-                        style={{ width: `${(progress / 100) * 600}px` }}
-                    />
-                </div>
+                Loading...
             </div>
         </div>
     );

@@ -34,7 +34,7 @@ function App() {
     useEffect(() => {
         const splashTimeout = setTimeout(() => {
             setLoading(false);
-        }, 8000);
+        }, 3000);
 
         return () => {
             clearTimeout(splashTimeout);
@@ -50,7 +50,8 @@ function App() {
         return <div>Error: {error.message}</div>;
     }
 
-    const homeVideo = data.videos[0];
+    const homeVideo = data?.videos[0];
+    console.log(homeVideo);
 
     return (
         <Router>
@@ -58,7 +59,7 @@ function App() {
             <div className="page-container fade-in">
                 <div className="video-container">
                     <video className="video-element" autoPlay muted>
-                        <source src={homeVideo.link.url} type="video/mp4" />
+                        <source src={homeVideo.videoUrl.url} type="video/mp4" />
                     </video>
                 </div>
                 <Routes>

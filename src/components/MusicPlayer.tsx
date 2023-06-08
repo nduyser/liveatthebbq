@@ -5,8 +5,8 @@ import { BsPlayFill, BsPauseFill } from 'react-icons/bs';
 
 export const MusicPlayer = () => {
     const { data } = useQuery(media);
-    const audioTitle = data?.audioTracks[0].title;
-    const audioSource = data?.audioTracks[0].audioFile.url;
+    const audioTitle = data?.audioTracks[0].audioTitle;
+    const audioSource = data?.audioTracks[0].audioUrl.url;
 
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
